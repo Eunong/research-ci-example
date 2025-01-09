@@ -1,4 +1,6 @@
-name: Lint Code Base
+# https://github.com/Eunong/research-ci-example/new/main?filename=.github%2Fworkflows%2Fsuper-linter.yml&workflow_template=ci%2Fsuper-linter
+
+name: Custom Workflows - Lint Code Base
 
 on: push # push 발생 시
 
@@ -18,13 +20,13 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Runs the Super-Linter action
       - name: Lint Code Base
-        uses: github/super-linter@v3 # github의 모듈 사용
+        uses: github/super-linter@v4
         env:
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PYTHON_BLACK: true
           # VALIDATE_PYTHON_FLAKE8: true
