@@ -28,11 +28,20 @@ jobs:
         run: |
           coverage run --source=./ -m unittest discover -p "*_test.py"
           coverage xml
-      
-      - name: Upload coverage to code climate
+
+      - name: Setup Code Climate
         uses: remarkablemark/setup-codeclimate@v2
+
+      - name: Upload coverage to code climate fix
         env:
           CC_TEST_REPORTER_ID: 5fb027a916b7f538633f8a95d29017c785d0d60f63ebe8100bfafbf48c1490d0
-          CODECLIMATE_REPO_TOKEN: 5fb027a916b7f538633f8a95d29017c785d0d60f63ebe8100bfafbf48c1490d0
         run: |
-          codeclimate-test-reporter
+          cc-test-reporter before-build
+          npm test
+          cc-test-reporter after-build --exit-code $?
+
+      # - name: Upload coverage to code climate
+      #   env:
+      #     CODECLIMATE_REPO_TOKEN: 5fb027a916b7f538633f8a95d29017c785d0d60f63ebe8100bfafbf48c1490d0
+      #   run: |
+      #     codeclimate-test-reporter
