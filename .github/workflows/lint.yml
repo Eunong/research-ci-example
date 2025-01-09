@@ -1,6 +1,6 @@
 # https://github.com/Eunong/research-ci-example/new/main?filename=.github%2Fworkflows%2Fsuper-linter.yml&workflow_template=ci%2Fsuper-linter
 
-name: Custom Workflows - Lint Code Base
+name: Lint Code Base
 
 on: push # push 발생 시
 
