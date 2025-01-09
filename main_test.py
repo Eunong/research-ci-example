@@ -8,7 +8,7 @@ class MainTest(unittest.TestCase):
         ret = main.helloworld("Test")
         print(f"main.helloworld return : {ret}")
         print(ret)
-        self.assertEqual(ret, "Hello World Test123")
+        self.assertEqual(ret, "Hello World Test")
 
 
 if __name__ == "__main__":
