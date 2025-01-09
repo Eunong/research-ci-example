@@ -30,7 +30,9 @@ jobs:
           coverage xml
       
       - name: Upload coverage to code climate
+        uses: remarkablemark/setup-codeclimate@v2
         env:
+          CC_TEST_REPORTER_ID: 5fb027a916b7f538633f8a95d29017c785d0d60f63ebe8100bfafbf48c1490d0
           CODECLIMATE_REPO_TOKEN: 5fb027a916b7f538633f8a95d29017c785d0d60f63ebe8100bfafbf48c1490d0
         run: |
           codeclimate-test-reporter
